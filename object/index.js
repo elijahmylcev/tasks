@@ -160,3 +160,15 @@ const inputData = [
 		name: 'Sony Xperia L1 Dual Black',
 	},
 ];
+
+function sortByFeedBacks(arr) {
+	const temp = JSON.parse(JSON.stringify(arr));
+
+	temp.forEach(item => {
+		item.ratingReviews = +item.ratingReviews.replace(/\D/g, '');
+	});
+
+	temp.sort((a, b) => (a.ratingReviews > b.ratingReviews ? 1 : -1));
+}
+
+sortByFeedBacks(inputData);
