@@ -169,6 +169,16 @@ function sortByFeedBacks(arr) {
 	});
 
 	temp.sort((a, b) => (a.ratingReviews > b.ratingReviews ? 1 : -1));
+	document.querySelector('.result').innerHTML = '';
+
+	temp.forEach(item => {
+		document.querySelector('.result').innerHTML += `
+      <h3>${item.name}</h3>
+      <div>Отзывов: ${item.ratingReviews}</div>
+    `;
+	});
 }
 
-sortByFeedBacks(inputData);
+document.querySelector('.feed').addEventListener('click', () => {
+	sortByFeedBacks(inputData);
+});
